@@ -1,16 +1,48 @@
-function updateClock() {
+const schedule = {
+    Sunday: [],
+    Monday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Tuesday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Wednesday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Thursday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Friday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Saturday: []
+}
 
-    const now = new Date();
 
-    const date = now.toLocaleDateString("en-Us", {
+function updateDateDisplay(date) {
+    const formatted = date.toLocaleDataString("en-US", {
         weekday: "long",
         month: "short",
         day: "numeric"
     });
-    document.getElementById("date").textContent = date;
-
+    document.getElementById("dateDisplay").textContent = formatted;
 }
 
+function showSchedule(date) {
+    const dayName = date.toLocaleDataString("en-US", { weekday: "long" });
 
-updateClock();
-setInterval(updateClock, 1000);
+    updateDateDisplay(date);
+
+    const subjects = schedule[datName] || [];
+    const body = document.getElementById("scheduleBody");
+    body.innerHTML = "";
+
+    if (subjects.length === 0) {
+        body.innerHTML = "<tr><td colspan='2'>No Classes Today</td></tr>";
+    } else {
+        for (let i = 0; i < subjects.length; i++) {
+            body.innerHTML = "<tr><td>" + (i + 1) + "</td><td>" + subjects[i] + "</td></tr>";
+        }
+    }
+}
+
+const today = new Date();
+showSchedule(today);
+
+const datePicker = document.getElementById("datePicker");
+date.Picker.value = today.toISOString().split("T")[0];
+
+datePicker.addEventListener("change", function () {
+    const chosenDate = new Date(datePicker.value + "T00:00:00");
+    showSchedule(chosenDate);
+});

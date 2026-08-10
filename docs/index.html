@@ -9,32 +9,20 @@
 </head>
 
 <body>
-    <header>
-        <div id="Date_container">
-            <div id="date"></div>
-        </div>
-    </header>
-    <div class="date-picker-row">
-        <span>Jump To Date</span>
-        <input type="date" id="datePicker">
-        <button onclick="">Today</button>
-    </div>
 
-    <nav class="tabs" id="tabs"></nav>
+    <h1>My Class Schedule</h1>
+    <div id="dateDisplay"></div>
 
-    <div class="card">
-        <h2 id="cardLabel">Today's Subjects</h2>
-        <Table>
-            <thead>
-                <tr>
-                    <th>Period</th>
-                    <th>Subject</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </Table>
-        <div class="empty-note" id="emptyNote">No Classes Today !!! Enjoyyyyyyyy</div>
-    </div>
+    <label for="datePicker">Pick a different date:</label><br>
+    <input type="date" id="datePicker">
+
+    <table>
+        <tr>
+            <th>Period</th>
+            <th>Subject</th>
+        </tr>
+        <tbody id="scheduleBody"></tbody>
+    </table>
 
 
     <script src="index.js"></script>
