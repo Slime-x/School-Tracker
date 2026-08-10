@@ -10,7 +10,7 @@ const schedule = {
 
 
 function updateDateDisplay(date) {
-    const formatted = date.toLocaleDataString("en-US", {
+    const formatted = date.toLocaleDateString("en-US", {
         weekday: "long",
         month: "short",
         day: "numeric"
@@ -19,11 +19,11 @@ function updateDateDisplay(date) {
 }
 
 function showSchedule(date) {
-    const dayName = date.toLocaleDataString("en-US", { weekday: "long" });
+    const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
 
     updateDateDisplay(date);
 
-    const subjects = schedule[datName] || [];
+    const subjects = schedule[dayName] || [];
     const body = document.getElementById("scheduleBody");
     body.innerHTML = "";
 
@@ -31,7 +31,7 @@ function showSchedule(date) {
         body.innerHTML = "<tr><td colspan='2'>No Classes Today</td></tr>";
     } else {
         for (let i = 0; i < subjects.length; i++) {
-            body.innerHTML = "<tr><td>" + (i + 1) + "</td><td>" + subjects[i] + "</td></tr>";
+            body.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + subjects[i] + "</td></tr>";
         }
     }
 }
@@ -40,7 +40,7 @@ const today = new Date();
 showSchedule(today);
 
 const datePicker = document.getElementById("datePicker");
-date.Picker.value = today.toISOString().split("T")[0];
+datePicker.value = today.toISOString().split("T")[0];
 
 datePicker.addEventListener("change", function () {
     const chosenDate = new Date(datePicker.value + "T00:00:00");

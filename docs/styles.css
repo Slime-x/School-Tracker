@@ -1,38 +1,45 @@
 body {
+    background-color: black;
     font-family: Arial, sans-serif;
     max-width: 500px;
     margin: 40px auto;
-    padding: 0 15pxx;
+    padding: 0 15px;
 }
 
-h1 {
-    font-size: 2rem;
-}
 
-#dateDisplat {
-    font-size: 1.6rem;
-    color: #464646;
+#dateDisplay {
+    font-size: 3rem;
+    font-weight: Bold;
+    margin-left: 4rem;
+    color: #ffffff;
     margin-bottom: 1.6rem;
 }
 
 input[type=date] {
     padding: 5px;
+    margin-left: 10rem;
     margin-bottom: 2rem;
-    background-color: rgba(135, 207, 235, 0.274);
+    background-color: rgba(1, 183, 255, 0.274);
 }
 
 table {
+    background-image: url(background1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     width: 100%;
     border-collapse: collapse;
+    color: white;
 }
 
 th,
 td {
-    border: 1px solid #ccc;
-    padding: 1rem;
+    border: 1px solid white;
+    padding: 0.8rem;
     text-align: left;
 }
 
 th {
-    background-color: #eee;
+    background-color: #a3a1a16c;
 }
