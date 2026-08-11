@@ -1,8 +1,32 @@
+:root {
+    --bg: #0a0a0b;
+    --surface: #141416;
+    --edge: rgba(255, 255, 255, 0.1);
+    --rule: rgba(255, 255, 255, 0.15);
+    --rule-strong: rgba(255, 255, 255, 0.3);
+    --text: #f0f0f2;
+    --text-dim: #a8a8ad;
+    --accent: #e8c468;
+    --accent-dim: rgba(232, 196, 104, 0.301);
+    --hridhaan: #e2694f;
+    --row-alt: rgba(255, 255, 255, 0.05);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Work Sans', Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
 body {
     margin: 0;
     min-height: 100vh;
-    background-color: rgb(0, 0, 0);
-    color: white;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     justify-content: center;
     font-family: Arial, sans-serif;
@@ -19,17 +43,62 @@ body {
 }
 
 .panel {
-    background: rgba(255, 255, 255, 0.418);
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 8px;
+    padding: 1.6rem 1.4rem 1.5rem;
+}
+
+.panel-header {
+    text-align: center;
+}
+
+.panel-header--left {
+    text-align: left;
+}
+
+.eyebrow {
+    margin: 0 0 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.paner-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
 }
 
 
 #dateDisplay {
-    font-size: 3rem;
-    font-weight: Bold;
-    margin-left: 4rem;
-    color: #ff0000;
-    margin-bottom: 1.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.3rem;
+    line-height: 1.15;
+    color: var(--accent);
 }
+
+.rule {
+    border: none;
+    border-top: 1px dashed var(--rule-strong);
+    margin: 1rem 0 1.25rem;
+    ;
+}
+
+
+
+
+.picker-row {
+    display: flex;
+    align-items: center;
+
+}
+
+
 
 #text {
     color: white;
