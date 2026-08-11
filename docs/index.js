@@ -1,10 +1,10 @@
 const schedule = {
     Sunday: [],
-    Monday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
-    Tuesday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
-    Wednesday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
-    Thursday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
-    Friday: ["subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5", "Subject 6", "Subject 7"],
+    Monday: ["Computer", "Chemistry [D.P]", "Lab Physics", "Lab Physics", "Chemistry [LBP]", "Nepali", "Chemistry [mam]"],
+    Tuesday: ["Computer", "Chemistry [D.P]", "Lab Chemistry", "Lab Chemistry", "Chemistry [LBP]", "Nep/Math", "Chemistry [mam]"],
+    Wednesday: ["Computer", "Chemistry [D.P]", "Physics [ML]", "English", "Physics [DBA]", "Math [Nabin]", "Math [JPC]"],
+    Thursday: ["Computer", "Math [Nabin]", "Phyiscs [ML]", "English", "Eng/Math", "Physics [DBA]", "Math [JPC]"],
+    Friday: ["Computer", "Physics [ML]", "Math [Nabin]", "English", "Physics [ML]", "Nepali", "Math [JPC]"],
     Saturday: []
 }
 

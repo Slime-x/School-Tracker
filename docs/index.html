@@ -9,22 +9,37 @@
 </head>
 
 <body>
+    <main class="page">
+        <section class="panel">
+            <header class="panel-header">
+                <p class="eye">Today&rsquo;s timetable</p>
+                <div id="dateDisplay"></div>
+            </header>
 
+            <hr>
+            <div class="picker">
+                <label id="text" for="datePicker">Pick a different date:</label>
+                <input type="date" id="datePicker">
+            </div>
 
-    <div id="dateDisplay"></div>
+            <button type="button" id="tomorrowBtn" class="secondary-btn">Tomorrow's Subjects</button>
 
-    <label for="datePicker">Pick a different date:</label><br>
-    <input type="date" id="datePicker">
+            <table>
+                <tead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Subject</th>
+                    </tr>
+                </tead>
+                <tbody id="scheduleBody"></tbody>
+            </table>
 
-    <table>
-        <tr>
-            <th>Period</th>
-            <th>Subject</th>
-        </tr>
-        <tbody id="scheduleBody"></tbody>
-    </table>
+        </section>
 
+        <section class="panel tracker">
+        </section>
 
+    </main>
     <script src="index.js"></script>
 </body>
 
