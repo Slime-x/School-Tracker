@@ -109,3 +109,38 @@ function checkedStatusText(dateStr) {
         return "Checked " + diffDays + "days ago · " + formattedDate;
     }
 }
+
+let subjects = loadsubjet();
+
+function renderSubjects() {
+    const list = document.getElementById("subjectList");
+    list.innerHTML = "";
+
+    if (subjects.length === 0) {
+        list.innerHTML = "<li class='empty-state'>No Subject 'yet' - add one above.</li>";
+        return;
+    }
+
+    subjects.forEach(function (subject) {
+        const li = document.createElement("li");
+        li.className = "subject-card";
+        li.dataset.id = subject.id;
+
+        li.innerHTML =
+            "<div class='subject-card__top'>" +
+            "<span class='subject-card__name'>" + subject.name + "</span>" +
+            "<button type='button' class'icon-btn delete-btn' title='Delete subject'>&times;</button>" +
+            "</div>" +
+            "<div class='subject-card__status'>" +
+            "<span class='status-text'>" + checkedStatusText(subject.lastChecked) + "</span>" +
+            "<button type='button' class='check-btn'>Mark Copy Checked</button>" +
+            "</div>" +
+            "<details class='subject-card__note'>" +
+            "<summary>Note</summary>" +
+            "<textarea class='note-input' placeholder='Copy check on friday...'>" + (subject.note || "") + "</textarea>" +
+            "<button type='button' class='save-note-btn'>Save Note</button>" +
+            "</details>";
+
+        list.appendChild(li);
+    });
+}
