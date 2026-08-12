@@ -169,21 +169,47 @@ input[type="date"]:focus {
 
 
 table {
-    background-color: rgba(224, 165, 0, 0.322);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
     width: 100%;
     border-collapse: collapse;
-    color: white;
 }
 
-th,
-td {
-    border: 1px solid rgb(255, 145, 0);
-    padding: 0.8rem;
+thead th {
     text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 0 0.6rem 0.6rem;
+    border-bottom: 1px solid var(--rule-strong);
 }
 
-th {
-    background-color: #a3a1a16c;
+
+th:first-child,
+td:first-child {
+    width: 3.2rem;
+}
+
+tbody td {
+    padding: 0.72rem 0.6rem;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 0.94rem;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: var(--row-alt);
+}
+
+tbody tr:hover td {
+    background-color: var(--accent-dim);
+}
+
+tbody td:first-child {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-weight: 500;
 }
