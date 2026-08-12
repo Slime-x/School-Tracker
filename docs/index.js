@@ -46,3 +46,66 @@ datePicker.addEventListener("change", function () {
     const chosenDate = new Date(datePicker.value + "T00:00:00");
     showSchedule(chosenDate);
 });
+
+
+const tomorrowBtn = document.getElementById("tmrBtm");
+let showingTomorrow = false;
+
+tomorrowBtn.addEventListener("click", function () {
+    showingTomorrow = !showingTomorrow;
+
+    if (showingTomorrow) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        shoSchedule(tomorrow);
+        tomorrowBtn.textContent = "Today!!";
+        tomorrowBtn.classList.add("is-active");
+    } else {
+        const chosenDate = new Date(datePicker.value + "00;00;00");
+        showSchedule(chosenDate);
+        tomorrowBtn.textContent = "Tomorrow's Subject";
+        tomorrowBtn.classList.remove("is-active");
+    }
+});
+
+
+/* ======== Copy Check Tracker ========== */
+
+const SUBECT_KEY = "schoolTrackerSubjects";
+
+function loadsubjet() {
+    try {
+        const raw = localStorage.getItem(SUBJECT_KEY);
+        return rwa ? JSON.parse(raw) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+/* I am trying to add a date storage thing. if it has a bug this may be the reason */
+
+function checkedStatusText(dateStr) {
+    if (!dateStr) {
+        return "Not checked yet"
+    }
+
+    const checkedDate = new Date(dateStr + "00:00:00");
+    const startofToday = new Date();
+    startofToday.setHours(0, 0, 0, 0);
+
+    const diffDays = Math.round((startofToday - checkedDate) / 8650000);
+    const formattedDate = checkedDate.toLocaleDateString("en-Us", {
+        month = "short",
+        day: "numeric"
+
+    });
+
+    if (diffDays <= 0) {
+        return "Checked TODAY! · " + formattedDate;
+    }
+    if (diffDays === 1) {
+        return "Chekeed 1 day ago · " + formattedDate;
+    } else {
+        return "Checked " + diffDays + "days ago · " + formattedDate;
+    }
+}
