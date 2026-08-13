@@ -147,3 +147,51 @@ function renderSubjects() {
         list.appendChild(li);
     });
 }
+
+document.getElementById("addSubjectForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = document.getElementById("newSubjectInput");
+    const name = input.value.trim();
+    if (!name) {
+        return;
+    }
+
+    subjects.push({
+        id: Date.now().toString(),
+        name: name,
+        lastChecked: null,
+        note: ""
+    });
+
+    saveSubjests(subjects);
+    renderSubjects();
+    input.value = "";
+});
+
+document.getElementById("subjecList").addEventListener("click", function (e) {
+    const card = e.target.closet(".subject-card");
+    if (!card) {
+        return;
+    }
+
+    const subject = subjects.find(function (s) {
+        return s.id === card.dataset.id;
+    });
+    if (!subject) {
+        return;
+
+    }
+
+    if (e.target.classList.contains("check-btn")) {
+        subject.lastChecked = new Date().toISOString().split("T")[0];
+        saveSubjects(subjects);
+        renderSubjects();
+    }
+
+    if (e.target.classList.contains("delete-btn")) {
+        subjects = subjects.filter(function (s) {
+
+        })
+    }
+
+})
