@@ -213,3 +213,34 @@ tbody td:first-child {
     color: var(--accent);
     font-weight: 500;
 }
+
+tbody td[colspan] {
+    text-align: center;
+    padding: 1.3rem 0.6rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.add-suject-form {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.add-subject-form-input[type="text"] {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text);
+    background-color: rbga(255, 225, 255, 0.04);
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem;
+}
+
+.add-subject-form input[type="text"]:focus-visible,
+.add-subject-form input[type="text"]:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-color: var(--accent);
+}

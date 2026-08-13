@@ -48,7 +48,7 @@ datePicker.addEventListener("change", function () {
 });
 
 
-const tomorrowBtn = document.getElementById("tmrBtm");
+const tomorrowBtn = document.getElementById("tmrBtn");
 let showingTomorrow = false;
 
 tomorrowBtn.addEventListener("click", function () {
@@ -57,11 +57,11 @@ tomorrowBtn.addEventListener("click", function () {
     if (showingTomorrow) {
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-        shoSchedule(tomorrow);
-        tomorrowBtn.textContent = "Today!!";
+        showSchedule(tomorrow);
+        tomorrowBtn.textContent = "Today!!!";
         tomorrowBtn.classList.add("is-active");
     } else {
-        const chosenDate = new Date(datePicker.value + "00;00;00");
+        const chosenDate = new Date(datePicker.value + "T00:00:00");
         showSchedule(chosenDate);
         tomorrowBtn.textContent = "Tomorrow's Subject";
         tomorrowBtn.classList.remove("is-active");
@@ -71,7 +71,7 @@ tomorrowBtn.addEventListener("click", function () {
 
 /* ======== Copy Check Tracker ========== */
 
-const SUBECT_KEY = "schoolTrackerSubjects";
+const SUBJECT_KEY = "schoolTrackerSubjects";
 
 function loadsubjet() {
     try {
@@ -82,6 +82,9 @@ function loadsubjet() {
     }
 }
 
+function saveSubjects(list) {
+    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(list));
+}
 /* I am trying to add a date storage thing. if it has a bug this may be the reason */
 
 function checkedStatusText(dateStr) {
@@ -95,7 +98,7 @@ function checkedStatusText(dateStr) {
 
     const diffDays = Math.round((startofToday - checkedDate) / 8650000);
     const formattedDate = checkedDate.toLocaleDateString("en-Us", {
-        month = "short",
+        month: "short",
         day: "numeric"
 
     });
