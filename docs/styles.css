@@ -273,6 +273,67 @@ tbody td[colspan] {
     display: flex;
     flex-direction: column;
     gap: 0.9;
+}
 
+.empty-space {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+}
 
+.subject-card {
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+
+}
+
+.subject-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+
+.subject-card__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.1rem 0.3rem;
+}
+
+.icon-btn:hover {
+    color: var(--danger);
+}
+
+.icon-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.subject-card__status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--rule);
+}
+
+.status-text {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--text-dim);
 }

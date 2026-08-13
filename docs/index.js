@@ -163,12 +163,12 @@ document.getElementById("addSubjectForm").addEventListener("submit", function (e
         note: ""
     });
 
-    saveSubjests(subjects);
+    saveSubjects(subjects);
     renderSubjects();
     input.value = "";
 });
 
-document.getElementById("subjecList").addEventListener("click", function (e) {
+document.getElementById("subjectList").addEventListener("click", function (e) {
     const card = e.target.closet(".subject-card");
     if (!card) {
         return;
@@ -190,8 +190,20 @@ document.getElementById("subjecList").addEventListener("click", function (e) {
 
     if (e.target.classList.contains("delete-btn")) {
         subjects = subjects.filter(function (s) {
-
-        })
+            return s.id !== subject.id;
+        });
+        saveSubjects(subjects);
+        renderSubjects();
     }
 
-})
+
+    if (e.target.classList.contains("save-note-btn")) {
+        const textarea = card.querySelector(".note-input");
+        subject.note = textarea.value;
+        saveSubjects(subjects);
+        renderSubjects();
+    }
+
+});
+
+renderSubjects();
