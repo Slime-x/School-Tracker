@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--- TEST ONLYYY -->
 
 <head>
     <meta charset="UTF-8">
@@ -14,12 +13,12 @@
     <main class="page">
         <section class="panel">
             <header class="panel-header">
-                <p class="eye">Today&rsquo;s timetable</p>
+                <p class="eyebrow">Today&rsquo;s timetable</p>
                 <div id="dateDisplay"></div>
             </header>
 
-            <hr>
-            <div class="picker">
+            <hr class="rule">
+            <div class="picker-row">
                 <label id="text" for="datePicker">Pick a different date:</label>
                 <input type="date" id="datePicker">
             </div>
@@ -27,12 +26,12 @@
             <button type="button" id="tmrBtn" class="secondary-btn">Tomorrow's Subjects</button>
 
             <table>
-                <tead>
+                <thead>
                     <tr>
                         <th>Period</th>
                         <th>Subject</th>
                     </tr>
-                </tead>
+                </thead>
                 <tbody id="scheduleBody"></tbody>
             </table>
 
@@ -46,12 +45,12 @@
 
             <hr class="rule">
 
-            <form id="addSubjectForm">
+            <form class="add-subject-form" id="addSubjectForm">
                 <input type="text" id="newSubjectInput" placeholder="Subject">
                 <button type="submit" class="primary-btn">Add</button>
             </form>
 
-            <ul id="subjectList"></ul>
+            <ul class="subject-list" id="subjectList"></ul>
         </section>
 
     </main>

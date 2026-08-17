@@ -107,9 +107,9 @@ function checkedStatusText(dateStr) {
         return "Checked TODAY! · " + formattedDate;
     }
     if (diffDays === 1) {
-        return "Chekeed 1 day ago · " + formattedDate;
+        return "Checked 1 day ago · " + formattedDate;
     } else {
-        return "Checked " + diffDays + "days ago · " + formattedDate;
+        return "Checked " + diffDays + " days ago · " + formattedDate;
     }
 }
 
@@ -132,7 +132,7 @@ function renderSubjects() {
         li.innerHTML =
             "<div class='subject-card__top'>" +
             "<span class='subject-card__name'>" + subject.name + "</span>" +
-            "<button type='button' class'icon-btn delete-btn' title='Delete subject'>&times;</button>" +
+            "<button type='button' class='icon-btn delete-btn' title='Delete subject'>&times;</button>" +
             "</div>" +
             "<div class='subject-card__status'>" +
             "<span class='status-text'>" + checkedStatusText(subject.lastChecked) + "</span>" +
