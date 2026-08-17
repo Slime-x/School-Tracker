@@ -387,3 +387,61 @@ tbody td[colspan] {
     border-radius: 6px;
     padding: 0.55rem 0.7rem;
 }
+
+.note-input:focus-visible,
+.note-input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-color: var(--accent);
+}
+
+.save-note-btn{
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text);
+    background: transparent;
+    border: 1px dashed var (--rule-strong);
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+}
+.save-note-btn:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.save-note-btn:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* =========== AI ============== */
+
+@media (max-width: 400px) {
+    #dateDisplay {
+        font-size: 1.9rem;
+    }
+
+    .panel {
+        padding: 1.25rem 1rem 1.2rem;
+    }
+
+    .picker-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .subject-card__status {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ---------------------------------------------------
+   Motion preference
+--------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
