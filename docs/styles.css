@@ -337,3 +337,53 @@ tbody td[colspan] {
     font-size: 0.76rem;
     color: var(--text-dim);
 }
+
+.check-btn {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 5px;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.check-tbn:hover {
+    opacity: 0.8;
+}
+
+.check-btn:focus-visiblw {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.subject-card__note {
+    margin-top: 0.6rem;
+}
+
+.subject-card__ summary {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+    color: var(--texr-dim);
+    cursor: pointer;
+}
+
+.subject-card__note summary:hover {
+    color: var(--text);
+}
+
+.note-input {
+    width: 100%;
+    min-height: 4.5rem;
+    margin-top: 0.6rem;
+    resize: vertical;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text);
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem;
+}

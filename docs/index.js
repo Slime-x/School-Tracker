@@ -76,14 +76,14 @@ const SUBJECT_KEY = "schoolTrackerSubjects";
 function loadsubjet() {
     try {
         const raw = localStorage.getItem(SUBJECT_KEY);
-        return rwa ? JSON.parse(raw) : [];
+        return raw ? JSON.parse(raw) : [];
     } catch (e) {
         return [];
     }
 }
 
 function saveSubjects(list) {
-    localStorage.setItem(SUBJECTS_KEY, JSON.stringify(list));
+    localStorage.setItem(SUBJECT_KEY, JSON.stringify(list));
 }
 /* I am trying to add a date storage thing. if it has a bug this may be the reason */
 
@@ -92,11 +92,11 @@ function checkedStatusText(dateStr) {
         return "Not checked yet"
     }
 
-    const checkedDate = new Date(dateStr + "00:00:00");
+    const checkedDate = new Date(dateStr + "T00:00:00");
     const startofToday = new Date();
     startofToday.setHours(0, 0, 0, 0);
 
-    const diffDays = Math.round((startofToday - checkedDate) / 8650000);
+    const diffDays = Math.round((startofToday - checkedDate) / 86400000);
     const formattedDate = checkedDate.toLocaleDateString("en-Us", {
         month: "short",
         day: "numeric"
@@ -169,7 +169,7 @@ document.getElementById("addSubjectForm").addEventListener("submit", function (e
 });
 
 document.getElementById("subjectList").addEventListener("click", function (e) {
-    const card = e.target.closet(".subject-card");
+    const card = e.target.closest(".subject-card");
     if (!card) {
         return;
     }
