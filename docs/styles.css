@@ -1,17 +1,18 @@
 :root {
-    --bg: #0a0a0b;
-    --surface: #141416;
-    --edge: rgba(255, 255, 255, 0.1);
-    --rule: rgba(255, 255, 255, 0.15);
-    --rule-strong: rgba(255, 255, 255, 0.3);
-    --text: #f0f0f2;
-    --text-dim: #a8a8ad;
-    --accent: #e8c468;
-    --accent-dim: rgba(232, 196, 104, 0.301);
-    --danger: #e2694f;
-    --row-alt: rgba(255, 255, 255, 0.05);
+    --bg: #16241d;
+    --surface: #1f322a;
+    --edge: rgba(242, 243, 238, 0.14);
+    --rule: rgba(242, 243, 238, 0.18);
+    --rule-strong: rgba(242, 243, 238, 0.34);
+    --chalk: #f2f3ee;
+    --chalk-dim: #9fb3a6;
+    --chalk-yellow: #f2c94c;
+    --chalk-yellow-dim: rgba(242, 201, 76, 0.22);
+    --chalk-pink: #e78fa6;
+    --chalk-red: #e2694f;
+    --row-alt: rgba(242, 243, 238, 0.045);
 
-    --font-display: 'Space Grotesk', sans-serif;
+    --font-display: 'Caveat', cursive;
     --font-body: 'Work Sans', Arial, sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
@@ -20,17 +21,27 @@
     box-sizing: border-box;
 }
 
-
-
 body {
     margin: 0;
     min-height: 100vh;
     background-color: var(--bg);
-    color: var(--text);
+    background-image:
+        radial-gradient(ellipse at 15% 0%, rgba(242, 243, 238, 0.05), transparent 55%),
+        radial-gradient(ellipse at 85% 100%, rgba(242, 201, 76, 0.05), transparent 55%);
+    color: var(--chalk);
     display: flex;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    padding: 2.5rem 1rem 4rem;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-body);
+    padding: 2rem 1rem 4rem;
+}
+
+.brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--chalk-yellow);
+    margin: 0 0 1.5rem;
 }
 
 .page {
@@ -39,13 +50,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
 }
 
 .panel {
     background: var(--surface);
-    border: 1px solid white;
-    box-shadow: 8px 10px 5px rgba(255, 255, 255, 0.849);
+    border: 1px solid var(--edge);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
     border-radius: 10px;
     padding: 1.6rem 1.4rem 1.5rem;
 }
@@ -58,39 +68,33 @@ body {
     text-align: left;
 }
 
-.eyebrow {
-    margin: 0 0 0.2rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-dim);
+.panel-caption {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: var(--chalk-dim);
 }
 
 .panel-title {
     margin: 0;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.9rem;
+    color: var(--chalk);
 }
-
 
 #dateDisplay {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 2.3rem;
-    line-height: 1.15;
-    color: var(--accent);
+    font-size: 2.6rem;
+    line-height: 1.1;
+    color: var(--chalk-yellow);
 }
 
 .rule {
     border: none;
     border-top: 1px dashed var(--rule-strong);
     margin: 1rem 0 1.25rem;
-    ;
 }
-
-
 
 .picker-row {
     display: flex;
@@ -101,10 +105,8 @@ body {
     margin-bottom: 1rem;
 }
 
-
-
 #text {
-    color: var(--text-dim);
+    color: var(--chalk-dim);
     font-size: 0.9rem;
 }
 
@@ -112,24 +114,24 @@ input[type=date] {
     padding: 0.5rem 0.7rem;
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: var(--text);
+    color: var(--chalk);
     border: 1px solid var(--edge);
     border-radius: 6px;
-    accent-color: var(--accent);
-    background-color: rgba(255, 255, 255, 0.4);
-
+    accent-color: var(--chalk-yellow);
+    background-color: rgba(242, 243, 238, 0.06);
+    color-scheme: dark;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1) opacity(0.6);
+    filter: invert(1) opacity(0.7);
     cursor: pointer;
 }
 
 input[type="date"]:focus-visible,
 input[type="date"]:focus {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
-    border-color: var(--accent);
+    border-color: var(--chalk-yellow);
 }
 
 .secondary-btn {
@@ -137,8 +139,7 @@ input[type="date"]:focus {
     width: 100%;
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    color: var(--text);
+    color: var(--chalk);
     background: transparent;
     border-radius: 6px;
     border: 1px dashed var(--rule-strong);
@@ -149,24 +150,21 @@ input[type="date"]:focus {
 }
 
 .secondary-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--chalk-yellow);
+    color: var(--chalk-yellow);
 }
 
 .secondary-btn.is-active {
-    background: var(--accent-dim);
+    background: var(--chalk-yellow-dim);
     border-style: solid;
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--chalk-yellow);
+    color: var(--chalk-yellow);
 }
 
 .secondary-btn:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
 }
-
-
-
 
 table {
     width: 100%;
@@ -176,14 +174,11 @@ table {
 thead th {
     text-align: left;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-dim);
+    font-size: 0.72rem;
+    color: var(--chalk-dim);
     padding: 0 0.6rem 0.6rem;
     border-bottom: 1px solid var(--rule-strong);
 }
-
 
 th:first-child,
 td:first-child {
@@ -205,19 +200,19 @@ tbody tr:nth-child(even) td {
 }
 
 tbody tr:hover td {
-    background-color: var(--accent-dim);
+    background-color: var(--chalk-yellow-dim);
 }
 
 tbody td:first-child {
     font-family: var(--font-mono);
-    color: var(--accent);
+    color: var(--chalk-yellow);
     font-weight: 500;
 }
 
 tbody td[colspan] {
     text-align: center;
     padding: 1.3rem 0.6rem;
-    color: var(--text-dim);
+    color: var(--chalk-dim);
     font-style: italic;
 }
 
@@ -231,25 +226,29 @@ tbody td[colspan] {
     flex: 1;
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--text);
-    background-color: rgba(255, 225, 255, 0.04);
+    color: var(--chalk);
+    background-color: rgba(242, 243, 238, 0.06);
     border: 1px solid var(--edge);
     border-radius: 6px;
     padding: 0.55rem 0.7rem;
 }
 
+.add-subject-form input[type="text"]::placeholder {
+    color: var(--chalk-dim);
+}
+
 .add-subject-form input[type="text"]:focus-visible,
 .add-subject-form input[type="text"]:focus {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
-    border-color: var(--accent);
+    border-color: var(--chalk-yellow);
 }
 
 .primary-btn {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: #101011;
-    background-color: var(--accent);
+    color: #16241d;
+    background-color: var(--chalk-yellow);
     border: none;
     border-radius: 6px;
     padding: 0 1rem;
@@ -262,7 +261,7 @@ tbody td[colspan] {
 }
 
 .primary-btn:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
 }
 
@@ -276,7 +275,7 @@ tbody td[colspan] {
 }
 
 .empty-state {
-    color: var(--text-dim);
+    color: var(--chalk-dim);
     font-size: 0.9rem;
     font-style: italic;
     text-align: center;
@@ -287,7 +286,7 @@ tbody td[colspan] {
     border: 1px solid var(--edge);
     border-radius: 6px;
     padding: 0.9rem 1rem;
-
+    background-color: rgba(242, 243, 238, 0.02);
 }
 
 .subject-card__top {
@@ -300,25 +299,25 @@ tbody td[colspan] {
 .subject-card__name {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
 }
 
 .icon-btn {
     background: transparent;
     border: none;
-    color: var(--text-dim);
-    font-size: 1.1rem;
+    color: var(--chalk-dim);
+    font-size: 1.2rem;
     line-height: 1;
     cursor: pointer;
     padding: 0.1rem 0.3rem;
 }
 
 .icon-btn:hover {
-    color: var(--danger);
+    color: var(--chalk-red);
 }
 
 .icon-btn:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
 }
 
@@ -335,14 +334,15 @@ tbody td[colspan] {
 .status-text {
     font-family: var(--font-mono);
     font-size: 0.76rem;
-    color: var(--text-dim);
+    color: var(--chalk-dim);
 }
 
 .check-btn {
     font-family: var(--font-mono);
     font-size: 0.74rem;
-    color: var(--accent);
-    background: var(--accent-dim);
+    color: var(--chalk-pink);
+    background: rgba(231, 143, 166, 0.16);
+    border: none;
     border-radius: 5px;
     padding: 0.35rem 0.6rem;
     cursor: pointer;
@@ -354,7 +354,7 @@ tbody td[colspan] {
 }
 
 .check-btn:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
 }
 
@@ -365,14 +365,12 @@ tbody td[colspan] {
 .subject-card__note summary {
     font-family: var(--font-mono);
     font-size: 0.74rem;
-    letter-spacing: 0.06rem;
-    text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--chalk-dim);
     cursor: pointer;
 }
 
 .subject-card__note summary:hover {
-    color: var(--text);
+    color: var(--chalk);
 }
 
 .note-input {
@@ -382,44 +380,49 @@ tbody td[colspan] {
     resize: vertical;
     font-family: var(--font-body);
     font-size: 0.88rem;
-    color: var(--text);
-    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--chalk);
+    background-color: rgba(242, 243, 238, 0.05);
+    border: 1px solid var(--edge);
     border-radius: 6px;
     padding: 0.55rem 0.7rem;
 }
 
-.note-input:focus-visible,
-.note-input:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-color: var(--accent);
+.note-input::placeholder {
+    color: var(--chalk-dim);
 }
 
-.save-note-btn{
+.note-input:focus-visible,
+.note-input:focus {
+    outline: 2px solid var(--chalk-yellow);
+    outline-offset: 2px;
+    border-color: var(--chalk-yellow);
+}
+
+.save-note-btn {
     margin-top: 0.5rem;
     font-family: var(--font-mono);
     font-size: 0.74rem;
-    color: var(--text);
+    color: var(--chalk);
     background: transparent;
     border: 1px dashed var(--rule-strong);
+    border-radius: 5px;
     padding: 0.35rem 0.6rem;
     cursor: pointer;
 }
-.save-note-btn:hover{
-    border-color: var(--accent);
-    color: var(--accent);
+
+.save-note-btn:hover {
+    border-color: var(--chalk-yellow);
+    color: var(--chalk-yellow);
 }
 
-.save-note-btn:focus-visible{
-    outline: 2px solid var(--accent);
+.save-note-btn:focus-visible {
+    outline: 2px solid var(--chalk-yellow);
     outline-offset: 2px;
 }
 
-/* =========== AI ============== */
-
 @media (max-width: 400px) {
     #dateDisplay {
-        font-size: 1.9rem;
+        font-size: 2.1rem;
     }
 
     .panel {
@@ -437,9 +440,6 @@ tbody td[colspan] {
     }
 }
 
-/* ---------------------------------------------------
-   Motion preference
---------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
